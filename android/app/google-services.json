@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "279272138238",
+    "project_id": "manajement-989f1",
+    "storage_bucket": "manajement-989f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279272138238:android:a0f804224cf91185738caf",
+        "android_client_info": {
+          "package_name": "com.khaerulansari.managemen_sqlite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279272138238-l1uoi4jjfi3c5qn9h62e6b2lsgod7b5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ5HEcr2yqhvGk450zqf8vM580FAC98jg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279272138238-l1uoi4jjfi3c5qn9h62e6b2lsgod7b5s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
