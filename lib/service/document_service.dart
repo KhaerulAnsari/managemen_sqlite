@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:managemen_sqlite/ui/widgets/snackbar_box.dart';
 
 class DocumentProvider extends ChangeNotifier {
-  String uniqueIdName = DateTime.now().millisecondsSinceEpoch.toString();
+  // String uniqueIdName = DateTime.now().millisecondsSinceEpoch.toString();
   String fileName = DateTime.now().microsecondsSinceEpoch.toString();
 
   // Future uploadImageProduct(String path, String fileName) async {
@@ -41,7 +41,7 @@ class DocumentProvider extends ChangeNotifier {
   //   }
   // }
 
-  Future addDocument(Map<String, dynamic> data) async {
+  Future addDocument(Map<String, dynamic> data, String uniqueIdName) async {
     try {
       final ref = await FirebaseFirestore.instance.collection('document');
 

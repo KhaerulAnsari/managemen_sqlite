@@ -7,18 +7,23 @@ import 'package:get/get.dart';
 import 'package:managemen_sqlite/global/gobal.dart';
 import 'package:managemen_sqlite/theme.dart';
 import 'package:managemen_sqlite/ui/pages/home_page.dart';
-import 'package:managemen_sqlite/ui/pages/test_page.dart';
+import 'package:managemen_sqlite/ui/pages/main_page_web.dart';
 import 'package:managemen_sqlite/ui/widgets/custom_button.dart';
+import 'package:managemen_sqlite/ui/widgets/error_dialog.dart';
 import 'package:managemen_sqlite/ui/widgets/form_widgets.dart';
 import 'package:managemen_sqlite/ui/widgets/snackbar_box.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class SignInPage extends StatefulWidget {
+class SignInPageWeb extends StatefulWidget {
+  final double? margin;
+
+  SignInPageWeb({this.margin});
+
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignInPageWebState createState() => _SignInPageWebState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPageWebState extends State<SignInPageWeb> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -27,12 +32,24 @@ class _SignInPageState extends State<SignInPage> {
 
   formFalidation() {
     if (emailController.text.isEmpty && emailController.text.isEmpty) {
-      return snackbarBox(
-        'Masukkan email atau password terlebih dahulu',
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (c) {
+          return const ErrorDialog(
+            message: 'Masukkan email atau password anda.',
+          );
+        },
       );
     } else if (!EmailValidator.validate(emailController.text)) {
-      return snackbarBox(
-        'Format email tidak sesuai',
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (c) {
+          return const ErrorDialog(
+            message: 'Format email tidak didikung.',
+          );
+        },
       );
     } else {
       loginNow();
@@ -59,7 +76,16 @@ class _SignInPageState extends State<SignInPage> {
           setState(() {
             _islogin = false;
           });
-          snackbarBox("Email atau password salah.");
+          showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (c) {
+              return const ErrorDialog(
+                message: 'Email atau Password salah.',
+              );
+            },
+          );
+          // snackbarBox("Email atau password salah.");
         },
       );
     } on FirebaseException catch (e) {
@@ -70,7 +96,7 @@ class _SignInPageState extends State<SignInPage> {
     if (currentUser != null) {
       if (kIsWeb) {
         Get.to(
-          TestPage(),
+          MainPageWeb(),
         );
       } else {
         Get.offAll(
@@ -84,10 +110,10 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     Widget title() {
       return Text(
-        'Login',
+        'Welcome Back,\nSign In',
         style: blackTextStyle.copyWith(
-          fontSize: 22,
-          fontWeight: semiBold,
+          fontSize: 26,
+          fontWeight: bold,
         ),
       );
     }
@@ -95,8 +121,8 @@ class _SignInPageState extends State<SignInPage> {
     Widget image() {
       return Center(
         child: Image.asset(
-          'images/login.png',
-          height: 250,
+          'images/signin_web.png',
+          height: 350,
         ),
       );
     }
@@ -160,32 +186,50 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: EdgeInsets.all(defaultMargin),
+        padding: EdgeInsets.symmetric(
+          horizontal: widget.margin ?? 150,
+        ),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 31,
-              ),
-              title(),
-              const SizedBox(
-                height: 24,
-              ),
-              image(),
-              const SizedBox(
-                height: 20,
-              ),
-              formemail(),
-              const SizedBox(
-                height: 14,
-              ),
-              password(),
-              const SizedBox(
-                height: 30,
-              ),
-              buttonLogin(),
-            ],
+          child: SizedBox(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 31,
+                ),
+                title(),
+                const SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: image(),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          formemail(),
+                          const SizedBox(
+                            height: 14,
+                          ),
+                          password(),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          buttonLogin(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,14 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:managemen_sqlite/global/gobal.dart';
 import 'package:managemen_sqlite/service/document_service.dart';
 import 'package:managemen_sqlite/ui/pages/home_page.dart';
-import 'package:managemen_sqlite/ui/pages/sign_in_page.dart';
+import 'package:managemen_sqlite/ui/pages/sign_in/sign_in_page.dart';
+import 'package:managemen_sqlite/ui/pages/sign_in/sign_in_page_mobile.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:managemen_sqlite/ui/pages/sign_in_page_web.dart';
-import 'package:managemen_sqlite/ui/pages/test_page.dart';
+import 'package:managemen_sqlite/ui/pages/main_page_web.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -48,11 +47,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: kIsWeb
             ? firebaseAuth.currentUser != null
-                ? const TestPage()
-                : SignInPageWeb()
+                ? const MainPageWeb()
+                : const SignInPage()
             : firebaseAuth.currentUser != null
                 ? const HomePage()
-                : SignInPage(),
+                : SignInPageMobile(),
       ),
     );
   }

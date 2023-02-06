@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:managemen_sqlite/global/gobal.dart';
 import 'package:managemen_sqlite/theme.dart';
-import 'package:managemen_sqlite/ui/pages/sign_in_page_web.dart';
+import 'package:managemen_sqlite/ui/pages/sign_in/sign_in_page_web.dart';
 import 'package:managemen_sqlite/ui/pages/web/car_page_web.dart';
 import 'package:managemen_sqlite/ui/pages/web/chart_page_web.dart';
 import 'package:managemen_sqlite/ui/pages/web/home_page_web.dart';
@@ -11,14 +11,14 @@ import 'package:managemen_sqlite/ui/pages/web/notes_page_web.dart';
 import 'package:managemen_sqlite/ui/widgets/warning_dialog.dart';
 import 'package:unicons/unicons.dart';
 
-class TestPage extends StatefulWidget {
-  const TestPage({super.key});
+class MainPageWeb extends StatefulWidget {
+  const MainPageWeb({super.key});
 
   @override
-  State<TestPage> createState() => _TestPageState();
+  State<MainPageWeb> createState() => _MainPageWebState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _MainPageWebState extends State<MainPageWeb> {
   TabController? controller;
   int _selectedIndex = 0;
 
@@ -30,6 +30,7 @@ class _TestPageState extends State<TestPage> {
     }
 
     return Scaffold(
+      backgroundColor: const Color(0xFFEEEFF1),
       appBar: AppBar(
         backgroundColor: blueColor,
         title: Text(
@@ -184,7 +185,7 @@ class _TestPageState extends State<TestPage> {
       case 0:
         return const HomePageWeb();
       case 1:
-        return const MaintanancePageWeb();
+        return MaintanancePageWeb();
       case 2:
         return const ChartPageWeb();
       case 3:

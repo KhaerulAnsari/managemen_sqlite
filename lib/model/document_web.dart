@@ -19,6 +19,7 @@ class DocumentWebModel {
   String? remark;
   String? status;
   Timestamp? createdTime;
+  String? documentID;
 
   DocumentWebModel({
     this.scheduleNumber,
@@ -39,6 +40,7 @@ class DocumentWebModel {
     this.remark,
     this.status,
     this.createdTime,
+    this.documentID,
   });
 
   DocumentWebModel.fromJson(Map<String, dynamic> json) {
@@ -60,6 +62,7 @@ class DocumentWebModel {
     remark = json['remark'];
     status = json['status'];
     createdTime = json['createdTime'];
+    documentID = json['documentID'];
   }
 
   Map<String, dynamic> toJson() {
@@ -82,6 +85,7 @@ class DocumentWebModel {
     data['remark'] = remark;
     data['status'] = status;
     data['createdTime'] = createdTime;
+    data['documentID'] = documentID;
 
     return data;
   }

@@ -84,26 +84,32 @@ class _AddDocumentWebPageState extends State<AddDocumentWebPage> {
           },
         );
 
-        documentProvider.addDocument({
-          'scheduleNumber': scheduleNumberController.text,
-          'impectionNumber': impectionNumberController.text,
-          'policeNumber': policeNumberController.text,
-          'vin': vinController.text,
-          'engineNumber': engineNumberController.text,
-          'bodyNumber': bodyNumberController.text,
-          'model': modelNumberController.text,
-          'jobType': jobTypeController.text,
-          'houmeter': houmeterController.text,
-          'kilometer': kilometerController.text,
-          'priority': priorityController.text,
-          'customer': customerController.text,
-          'foreman': foremanController.text,
-          'startDate': DateTime.parse(startDateController.text),
-          'endDate': DateTime.parse(endDateController.text),
-          'remark': remarkController.text,
-          'status': statusController.text,
-          'createdTime': DateTime.now(),
-        });
+        String uniqueIdName = DateTime.now().millisecondsSinceEpoch.toString();
+
+        documentProvider.addDocument(
+          {
+            'scheduleNumber': scheduleNumberController.text,
+            'impectionNumber': impectionNumberController.text,
+            'policeNumber': policeNumberController.text,
+            'vin': vinController.text,
+            'engineNumber': engineNumberController.text,
+            'bodyNumber': bodyNumberController.text,
+            'model': modelNumberController.text,
+            'jobType': jobTypeController.text,
+            'houmeter': houmeterController.text,
+            'kilometer': kilometerController.text,
+            'priority': priorityController.text,
+            'customer': customerController.text,
+            'foreman': foremanController.text,
+            'startDate': DateTime.parse(startDateController.text),
+            'endDate': DateTime.parse(endDateController.text),
+            'remark': remarkController.text,
+            'status': statusController.text,
+            'createdTime': DateTime.now(),
+            'documentID': uniqueIdName,
+          },
+          uniqueIdName.toString(),
+        );
 
         Get.back();
         Get.back();
@@ -113,8 +119,7 @@ class _AddDocumentWebPageState extends State<AddDocumentWebPage> {
           barrierDismissible: false,
           builder: (c) {
             return const SuccesDialog(
-              message:
-                  'Dokument berhasil ditambahkan.\nSilahkan refresh halaman ini.',
+              message: 'Dokument berhasil ditambahkan.',
             );
           },
         );

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,18 +5,18 @@ import 'package:get/get.dart';
 import 'package:managemen_sqlite/global/gobal.dart';
 import 'package:managemen_sqlite/theme.dart';
 import 'package:managemen_sqlite/ui/pages/home_page.dart';
-import 'package:managemen_sqlite/ui/pages/test_page.dart';
+import 'package:managemen_sqlite/ui/pages/main_page_web.dart';
 import 'package:managemen_sqlite/ui/widgets/custom_button.dart';
 import 'package:managemen_sqlite/ui/widgets/form_widgets.dart';
 import 'package:managemen_sqlite/ui/widgets/snackbar_box.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class SignInPageWeb extends StatefulWidget {
+class SignInPageMobile extends StatefulWidget {
   @override
-  _SignInPageWebState createState() => _SignInPageWebState();
+  _SignInPageMobileState createState() => _SignInPageMobileState();
 }
 
-class _SignInPageWebState extends State<SignInPageWeb> {
+class _SignInPageMobileState extends State<SignInPageMobile> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -70,7 +68,7 @@ class _SignInPageWebState extends State<SignInPageWeb> {
     if (currentUser != null) {
       if (kIsWeb) {
         Get.to(
-          TestPage(),
+          const MainPageWeb(),
         );
       } else {
         Get.offAll(
@@ -83,19 +81,27 @@ class _SignInPageWebState extends State<SignInPageWeb> {
   @override
   Widget build(BuildContext context) {
     Widget title() {
-      return Text(
-        'Login',
-        style: blackTextStyle.copyWith(
-          fontSize: 22,
-          fontWeight: semiBold,
-        ),
-      );
+      return kIsWeb
+          ? Text(
+              'Welcome Back,\nSign In',
+              style: blackTextStyle.copyWith(
+                fontSize: 26,
+                fontWeight: bold,
+              ),
+            )
+          : Text(
+              'Login',
+              style: blackTextStyle.copyWith(
+                fontSize: 22,
+                fontWeight: semiBold,
+              ),
+            );
     }
 
     Widget image() {
       return Center(
         child: Image.asset(
-          'images/login.png',
+          kIsWeb ? 'images/signin_web.png' : 'images/login.png',
           height: 250,
         ),
       );
@@ -162,46 +168,30 @@ class _SignInPageWebState extends State<SignInPageWeb> {
       body: Padding(
         padding: EdgeInsets.all(defaultMargin),
         child: SingleChildScrollView(
-          child: SizedBox(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 31,
-                ),
-                title(),
-                const SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: image(),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          formemail(),
-                          const SizedBox(
-                            height: 14,
-                          ),
-                          password(),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          buttonLogin(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 31,
+              ),
+              title(),
+              const SizedBox(
+                height: 24,
+              ),
+              image(),
+              const SizedBox(
+                height: 20,
+              ),
+              formemail(),
+              const SizedBox(
+                height: 14,
+              ),
+              password(),
+              const SizedBox(
+                height: 30,
+              ),
+              buttonLogin(),
+            ],
           ),
         ),
       ),

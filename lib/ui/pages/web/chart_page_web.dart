@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:managemen_sqlite/ui/widgets/null_data.dart';
 
 class ChartPageWeb extends StatelessWidget {
   const ChartPageWeb({super.key});
@@ -6,7 +7,10 @@ class ChartPageWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Chart Page'),
+      child: NullData(
+        title: 'Coming Soon',
+        subtitle: 'Halaman Ini Akan Di Tampilkan Pada Waktu Kedepanya',
+      ),
     );
   }
 }

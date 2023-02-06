@@ -53,111 +53,141 @@ class TableDocument extends StatelessWidget {
       },
       children: [
         TableRow(
+          decoration: BoxDecoration(
+            color: whiteColor,
+          ),
           children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
-                child: Text(
-                  // ignore: prefer_interpolation_to_compose_strings
-                  model!.scheduleNumber! + '.',
-                  style: blackTextStyle.copyWith(
-                    fontSize: 12,
-                  ),
-                ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                left: 5,
+              ),
+              child: Text(
+                // ignore: prefer_interpolation_to_compose_strings
+                model!.scheduleNumber!,
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.policeNumber.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.vin.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.model.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.jobType.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.impectionNumber.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 startTime,
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
               child: Text(
                 model!.status.toString(),
-                style: blackTextStyle.copyWith(
-                  fontSize: 12,
-                ),
+                style: blackTextStyle.copyWith(),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(5, 7, 0, 7),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: (() {
-                      if (edit != null) {
-                        edit!();
-                      }
-                    }),
-                    child: Icon(
-                      Icons.edit,
-                      color: greyColor,
-                      size: 18,
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                ),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: (() {
+                        if (edit != null) {
+                          edit!();
+                        }
+                      }),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFCDC06),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                        child: Icon(
+                          Icons.edit,
+                          color: whiteColor,
+                          size: 18,
+                        ),
+                      ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      if (delete != null) {
-                        delete!();
-                      }
-                    },
-                    child: const Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                      size: 18,
+                    const SizedBox(
+                      width: 5,
                     ),
-                  ),
-                ],
+                    GestureDetector(
+                      onTap: () {
+                        if (delete != null) {
+                          delete!();
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFEF6B30),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                        child: Icon(
+                          Icons.delete,
+                          color: whiteColor,
+                          size: 18,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
