@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,15 +47,34 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
   TextEditingController remarkController = TextEditingController();
   TextEditingController statusController = TextEditingController();
 
-  List<String> jobTypeList = ['tes1', 'tes2', 'tes3', 'tes4', 'tes5'];
+  List<String> jobTypeList = [
+    'Periodic',
+    'Schedule (HM)',
+    'Minor Repair',
+    'Overwhole'
+  ];
   String? selectedJobTypeList;
-  List<String> priorityTypeList = ['tes1', 'tes2', 'tes3', 'tes4', 'tes5'];
+  List<String> priorityTypeList = [
+    'Critical',
+    'Medium',
+    'High',
+    'Low',
+  ];
   String? selectedPriorityTypeList;
-  List<String> customerTypeList = ['tes1', 'tes2', 'tes3', 'tes4', 'tes5'];
+  List<String> customerTypeList = ['PT.YMU', 'PT.ABC', 'PT.DIGITAL', 'PT.MSU'];
   String? selectedCustomerTypeList;
-  List<String> foremanTypeList = ['tes1', 'tes2', 'tes3', 'tes4', 'tes5'];
+  List<String> foremanTypeList = [
+    'Adi Setiawan',
+    'Budi Santoso',
+    'Arief',
+    'Siti Nurhasanah'
+  ];
   String? selectedForemanTypeList;
-  List<String> statusTypeList = ['tes1', 'tes2', 'tes3', 'tes4', 'tes5'];
+  List<String> statusTypeList = [
+    'Released',
+    'Approved',
+    'Finish',
+  ];
   String? selectedStatusTypeList;
   bool? inCreate = false;
 

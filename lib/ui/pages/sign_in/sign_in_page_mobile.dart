@@ -101,8 +101,8 @@ class _SignInPageMobileState extends State<SignInPageMobile> {
     Widget image() {
       return Center(
         child: Image.asset(
-          kIsWeb ? 'images/signin_web.png' : 'images/login.png',
-          height: 250,
+          'images/hino.png',
+          height: 200,
         ),
       );
     }

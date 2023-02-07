@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +119,7 @@ class _SignInPageWebState extends State<SignInPageWeb> {
     Widget image() {
       return Center(
         child: Image.asset(
-          'images/signin_web.png',
+          'images/hino.png',
           height: 350,
         ),
       );

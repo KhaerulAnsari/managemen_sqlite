@@ -19,7 +19,7 @@ Future<void> main() async {
 
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
         apiKey: 'AIzaSyBVYomZnEjU4xbBg3w-ultGsDsWqiaJ-jg',
         appId: '1:279272138238:web:d379fc3a675d1644738caf',
         messagingSenderId: '279272138238',
