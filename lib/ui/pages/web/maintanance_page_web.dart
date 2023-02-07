@@ -6,6 +6,7 @@ import 'package:managemen_sqlite/model/document_web.dart';
 import 'package:managemen_sqlite/service/document_service.dart';
 import 'package:managemen_sqlite/theme.dart';
 import 'package:managemen_sqlite/ui/widgets/custom_button.dart';
+import 'package:managemen_sqlite/ui/widgets/document_widget_web.dart';
 import 'package:managemen_sqlite/ui/widgets/error_dialog.dart';
 import 'package:managemen_sqlite/ui/widgets/form_dialog.dart';
 import 'package:managemen_sqlite/ui/widgets/form_widgets.dart';
@@ -19,9 +20,11 @@ import 'package:unicons/unicons.dart';
 
 class MaintanancePageWeb extends StatefulWidget {
   DocumentWebModel? model;
+  double withHeaderTable;
   MaintanancePageWeb({
     super.key,
     this.model,
+    this.withHeaderTable = 1.5,
   });
 
   @override
@@ -191,16 +194,16 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                 Table(
                   // border: TableBorder.all(
                   //     color: const Color(0xFF565656), width: 0.5),
-                  columnWidths: const {
-                    0: FlexColumnWidth(1.5),
-                    1: FlexColumnWidth(1.5),
-                    2: FlexColumnWidth(1.5),
-                    3: FlexColumnWidth(1.5),
-                    4: FlexColumnWidth(1.5),
-                    5: FlexColumnWidth(1.5),
-                    6: FlexColumnWidth(1.5),
-                    7: FlexColumnWidth(1.5),
-                    8: FlexColumnWidth(1.5),
+                  columnWidths: {
+                    0: FlexColumnWidth(widget.withHeaderTable),
+                    1: FlexColumnWidth(widget.withHeaderTable),
+                    2: FlexColumnWidth(widget.withHeaderTable),
+                    3: FlexColumnWidth(widget.withHeaderTable),
+                    4: FlexColumnWidth(widget.withHeaderTable),
+                    5: FlexColumnWidth(widget.withHeaderTable),
+                    6: FlexColumnWidth(widget.withHeaderTable),
+                    7: FlexColumnWidth(widget.withHeaderTable),
+                    8: FlexColumnWidth(widget.withHeaderTable),
                   },
                   children: [
                     TableRow(
@@ -225,9 +228,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Schedule No',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Schedule No',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -244,9 +249,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Plate Number',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Plate Number',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -263,9 +270,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Vin',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Vin',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -283,9 +292,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                                 const SizedBox(
                                   width: 5,
                                 ),
-                                Text(
-                                  'Model Year',
-                                  style: blackTextStyle.copyWith(),
+                                Expanded(
+                                  child: Text(
+                                    'Model Year',
+                                    style: blackTextStyle.copyWith(),
+                                  ),
                                 ),
                               ],
                             ),
@@ -303,9 +314,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Job Type',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Job Type',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -322,9 +335,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Impection No',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Impection No',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -341,9 +356,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Start Date',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Start Date',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -360,9 +377,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Status',
-                                style: blackTextStyle.copyWith(),
+                              Expanded(
+                                child: Text(
+                                  'Status',
+                                  style: blackTextStyle.copyWith(),
+                                ),
                               ),
                             ],
                           ),
@@ -380,9 +399,11 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
                                 const SizedBox(
                                   width: 5,
                                 ),
-                                Text(
-                                  'Action',
-                                  style: blackTextStyle.copyWith(),
+                                Expanded(
+                                  child: Text(
+                                    'Action',
+                                    style: blackTextStyle.copyWith(),
+                                  ),
                                 ),
                               ],
                             ),
@@ -448,48 +469,129 @@ class _MaintanancePageWebState extends State<MaintanancePageWeb> {
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 24,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 30,
+    Widget documentDataMobileVersion() {
+      return StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('document').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                color: blueColor,
+              ),
+            );
+          } else if (snapshot.data!.docs.isEmpty) {
+            return const NullData(
+              title: 'Upss Document Kosong!!',
+              subtitle:
+                  'Untuk saat ini dokumen masih kosong,\nSilahkan tambahkan dokumen.',
+            );
+          } else {
+            return ListView.builder(
+              physics: const ScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                DocumentWebModel model = DocumentWebModel.fromJson(
+                    snapshot.data!.docs[index].data()! as Map<String, dynamic>);
+
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 3,
+                  ),
+                  child: DocumentWidgetWeb(
+                    document: model,
+                    edit: () {
+                      clearForm();
+                      dialogEditDocument(
+                        context,
+                        model,
+                        snapshot.data!.docs[index]['documentID'],
+                      );
+                    },
+                    delete: () {
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (c) {
+                          return WarningDialog(
+                            message:
+                                'Apakah anda yakin ingin menghapus data ini?',
+                            mainButtonTitle: 'Hapus',
+                            onTap: () {
+                              documentProvider.deleteDocument(
+                                snapshot.data!.docs[index]['documentID'],
+                              );
+                              Get.back();
+                            },
+                          );
+                        },
+                      );
+                    },
+                  ),
+                );
+              },
+            );
+          }
+        },
+      );
+    }
+
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: constraints.maxWidth <= 500 ? 16 : 24,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Maintanance Schedule',
-                style: blackTextStyle.copyWith(
-                  fontSize: 24,
-                  fontWeight: semiBold,
-                ),
-              ),
-              SizedBox(
-                width: 100,
+              const SizedBox(
                 height: 30,
-                child: CustomButton(
-                  title: 'Create New',
-                  onTap: () {
-                    clearForm();
-                    dialogAddDocument(context);
-                    // Get.to(
-                    //   const AddDocumentWebPage(),
-                    // );
-                  },
-                ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Maintanance Schedule',
+                      style: blackTextStyle.copyWith(
+                        fontSize: constraints.maxWidth <= 500 ? 16 : 24,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    height: 30,
+                    child: CustomButton(
+                      title: 'Create New',
+                      onTap: () {
+                        clearForm();
+                        dialogAddDocument(context);
+                        // Get.to(
+                        //   const AddDocumentWebPage(),
+                        // );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              constraints.maxWidth <= 700
+                  ? documentDataMobileVersion()
+                  : documentData(),
             ],
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          documentData(),
-        ],
-      ),
+        );
+
+        // if (constraints.maxWidth <= 700) {
+        //   return documentDataMobileVersion();
+        // } else {
+        //   return
+        // }
+      },
     );
   }
 

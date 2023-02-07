@@ -7,7 +7,7 @@ import 'package:managemen_sqlite/ui/pages/home_page.dart';
 import 'package:managemen_sqlite/ui/pages/sign_in/sign_in_page.dart';
 import 'package:managemen_sqlite/ui/pages/sign_in/sign_in_page_mobile.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:managemen_sqlite/ui/pages/main_page_web.dart';
+import 'package:managemen_sqlite/ui/pages/main_page_web/main_page_web.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {

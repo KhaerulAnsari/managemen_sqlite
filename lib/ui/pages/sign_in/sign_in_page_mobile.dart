@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:managemen_sqlite/global/gobal.dart';
 import 'package:managemen_sqlite/theme.dart';
 import 'package:managemen_sqlite/ui/pages/home_page.dart';
-import 'package:managemen_sqlite/ui/pages/main_page_web.dart';
+import 'package:managemen_sqlite/ui/pages/main_page_web/main_page_web.dart';
 import 'package:managemen_sqlite/ui/widgets/custom_button.dart';
 import 'package:managemen_sqlite/ui/widgets/form_widgets.dart';
 import 'package:managemen_sqlite/ui/widgets/snackbar_box.dart';
